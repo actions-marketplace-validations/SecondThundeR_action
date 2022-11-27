@@ -1,3 +1,5 @@
+> Disclaimer: This fork simply fixes some deprecation warnings that were not merged into the main repository. Nothing more
+
 # Astro Deploy Action
 
 This action for [Astro](https://github.com/withastro/astro) builds your Astro project for [GitHub Pages](https://pages.github.com/).
@@ -14,7 +16,7 @@ For more information, please see our complete deployment guide—[Deploy your As
 - `node-version` - Optional: the specific version of Node that should be used to build your site. Defaults to `16`.
 - `package-manager` - Optional: the Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile.
 
-### Example workflow:
+### Example workflow
 
 #### Build and Deploy to GitHub Pages
 
@@ -30,7 +32,7 @@ on:
     branches: [ main ]
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
-  
+
 # Allow this job to clone the repo and create a page deployment
 permissions:
   contents: read
@@ -42,9 +44,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
-        uses: actions/checkout@v2          
+        uses: actions/checkout@v3
       - name: Install, build, and upload your site output
-        uses: withastro/action@v0
+        uses: SecondThundeR/action@v0
         # with:
             # path: . # The root location of your Astro project inside the repository. (optional)
             # node-version: 16 # The specific version of Node that should be used to build your site. Defaults to 16. (optional)
@@ -59,5 +61,5 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v1.0.5
 ```
